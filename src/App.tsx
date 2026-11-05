@@ -13,6 +13,7 @@ import { RoomLobby } from './components/RoomLobby.tsx';
 import { InviteModal } from './components/InviteModal.tsx';
 import { FreeRewardsModal } from './components/FreeRewardsModal.tsx';
 import { InRoomChat } from './components/InRoomChat.tsx';
+import { InstallAPKModal } from './components/InstallAPKModal.tsx';
 import { sounds } from './utils/sound.ts';
 import {
   Volume2,
@@ -24,6 +25,7 @@ import {
   Coins,
   Trophy,
   History,
+  Smartphone,
 } from 'lucide-react';
 
 export default function App() {
@@ -60,6 +62,7 @@ export default function App() {
   const [showInviteModal, setShowInviteModal] = useState<boolean>(false);
   const [showRewardsModal, setShowRewardsModal] = useState<boolean>(false);
   const [showHistoryModal, setShowHistoryModal] = useState<boolean>(false);
+  const [showInstallModal, setShowInstallModal] = useState<boolean>(false);
   const [dismissedCelebration, setDismissedCelebration] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -286,8 +289,21 @@ export default function App() {
           </div>
         </div>
 
-        {/* Right Header Status (Wallet + Rewards + Sound) */}
-        <div className="flex items-center gap-2.5">
+        {/* Right Header Status (Install App + Wallet + Rewards + Sound) */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Install on Android Button */}
+          <button
+            onClick={() => setShowInstallModal(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-700 hover:brightness-110 text-white text-xs font-bold shadow-md cursor-pointer transition-all active:scale-95"
+            title="Install on Android Phone / Get APK"
+          >
+            <Smartphone className="w-4 h-4 text-emerald-200" />
+            <span className="hidden sm:inline">Install App</span>
+            <span className="text-[10px] bg-emerald-400/25 px-1 py-0.2 rounded font-mono font-bold">
+              APK
+            </span>
+          </button>
+
           {/* Quick Wallet Chip */}
           <button
             onClick={() => setShowRewardsModal(true)}
@@ -331,6 +347,7 @@ export default function App() {
             onCreateRoom={handleCreateRoom}
             onJoinRoom={handleJoinRoom}
             onOpenRewards={() => setShowRewardsModal(true)}
+            onOpenInstall={() => setShowInstallModal(true)}
           />
         ) : (
           /* IN-ROOM MULTIPLAYER ARENA */
@@ -446,6 +463,13 @@ export default function App() {
           currentCoins={myCoins}
           onClaimCoins={handleClaimFreeCoins}
           onClose={() => setShowRewardsModal(false)}
+        />
+      )}
+
+      {/* Install on Android / APK Modal */}
+      {showInstallModal && (
+        <InstallAPKModal
+          onClose={() => setShowInstallModal(false)}
         />
       )}
 

@@ -1,0 +1,26 @@
+{
+  "id": "/",
+  "name": "LUCKY DROP - Multiplayer Wheel",
+  "short_name": "LuckyDrop",
+  "description": "Real-time online multiplayer lucky draw casino game with 2 to 8 players, dynamic wheel, and jackpot rewards.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#e11d48",
+  "background_color": "#090608",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

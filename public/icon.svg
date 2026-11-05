@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b0f1a"/>
+      <stop offset="60%" stop-color="#14060b"/>
+      <stop offset="100%" stop-color="#070204"/>
+    </radialGradient>
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="rubyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="50%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background with Safe Padding -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGlow)"/>
+
+  <!-- Outer Golden Ring -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="url(#goldRim)" stroke-width="14" filter="drop-shadow(0 0 16px rgba(245, 158, 11, 0.4))"/>
+
+  <!-- Wheel Outer Rim -->
+  <circle cx="256" cy="256" r="192" fill="#18070e" stroke="#e11d48" stroke-width="6"/>
+
+  <!-- Wheel Slices (Red and Black Sectors) -->
+  <g transform="rotate(22.5 256 256)">
+    <!-- 8 Slices -->
+    <path d="M256,256 L256,66 A190,190 0 0,1 390,121 Z" fill="#e11d48"/>
+    <path d="M256,256 L390,121 A190,190 0 0,1 446,256 Z" fill="#12070c"/>
+    <path d="M256,256 L446,256 A190,190 0 0,1 390,390 Z" fill="#be123c"/>
+    <path d="M256,256 L390,390 A190,190 0 0,1 256,446 Z" fill="#12070c"/>
+    <path d="M256,256 L256,446 A190,190 0 0,1 121,390 Z" fill="#e11d48"/>
+    <path d="M256,256 L121,390 A190,190 0 0,1 66,256 Z" fill="#12070c"/>
+    <path d="M256,256 L66,256 A190,190 0 0,1 121,121 Z" fill="#be123c"/>
+    <path d="M256,256 L121,121 A190,190 0 0,1 256,66 Z" fill="#12070c"/>
+  </g>
+
+  <!-- Golden Center Hub with Ruby Center -->
+  <circle cx="256" cy="256" r="82" fill="#0d0407" stroke="url(#goldRim)" stroke-width="8" filter="drop-shadow(0 0 20px rgba(225, 29, 72, 0.6))"/>
+  <circle cx="256" cy="256" r="64" fill="url(#rubyGrad)"/>
+
+  <!-- Lucky Dice / Crown Emblem in Center -->
+  <text x="256" y="278" font-size="64" text-anchor="middle" dominant-baseline="middle">🎰</text>
+
+  <!-- Top Pointer Arrow -->
+  <polygon points="256,86 242,48 270,48" fill="url(#goldRim)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.8))"/>
+  <circle cx="256" cy="48" r="10" fill="#f59e0b"/>
+</svg>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { GameStatus } from '../types.ts';
-import { PlusCircle, LogIn, Users, Flame, Coins, Sparkles, Trophy, Shuffle } from 'lucide-react';
+import { PlusCircle, LogIn, Users, Flame, Coins, Sparkles, Trophy, Shuffle, Smartphone } from 'lucide-react';
 
 interface RoomLobbyProps {
   rooms: Array<{
@@ -18,6 +18,7 @@ interface RoomLobbyProps {
   onCreateRoom: (name: string, maxPlayers: number, entryFee: number) => void;
   onJoinRoom: (code: string) => void;
   onOpenRewards: () => void;
+  onOpenInstall?: () => void;
 }
 
 const AVATAR_OPTIONS = ['👑', '🎰', '💎', '🎲', '👠', '🎩', '🤠', '🦁', '🐯', '🚀', '🍀', '⚡'];
@@ -31,6 +32,7 @@ export const RoomLobby: React.FC<RoomLobbyProps> = ({
   onCreateRoom,
   onJoinRoom,
   onOpenRewards,
+  onOpenInstall,
 }) => {
   const [activeTab, setActiveTab] = useState<'browse' | 'create' | 'join'>('browse');
   const [roomNameInput, setRoomNameInput] = useState('');
@@ -74,6 +76,22 @@ export const RoomLobby: React.FC<RoomLobbyProps> = ({
           <p className="text-sm text-gray-300 mt-1 max-w-md">
             Spin the high-stakes wheel, outlast up to 8 players, and claim the winner-takes-all jackpot pot!
           </p>
+
+          {/* Quick Install APK helper button */}
+          {onOpenInstall && (
+            <div className="mt-3 flex items-center justify-center sm:justify-start">
+              <button
+                onClick={onOpenInstall}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-900/80 to-teal-900/80 border border-emerald-500/50 hover:border-emerald-400 text-emerald-200 text-xs font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md"
+              >
+                <Smartphone className="w-4 h-4 text-emerald-400" />
+                <span>फोन में ऐप / APK इंस्टॉल करें</span>
+                <span className="text-[10px] bg-emerald-500/30 text-emerald-300 px-1.5 py-0.2 rounded font-mono">
+                  Android
+                </span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Profile Card & Free Rewards Trigger */}
