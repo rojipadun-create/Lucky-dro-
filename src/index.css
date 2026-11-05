@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-dark: #0a0708;
+    --color-bg-card: #150f13;
+    --color-crimson: #e11d48;
+    --color-gold: #fbbf24;
+  }
+
+  body {
+    background-color: #080608;
+    color: #f3f4f6;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom glowing effects for Red and Black theme */
+.glow-red {
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.45);
+}
+
+.glow-red-lg {
+  box-shadow: 0 0 45px rgba(225, 29, 72, 0.65);
+}
+
+.glow-gold {
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(225, 29, 72, 0.8), 0 0 24px rgba(225, 29, 72, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.8), 0 0 24px rgba(251, 191, 36, 0.4);
+}
+
+/* Wheel Pointer Animation */
+@keyframes flapper-tick {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-22deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.flapper-animate {
+  animation: flapper-tick 0.08s ease-in-out;
+}
+
+/* Casino Felt / Carbon Pattern Background */
+.bg-casino-pattern {
+  background-color: #090608;
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(225, 29, 72, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(185, 28, 28, 0.1) 0%, transparent 50%),
+    radial-gradient(#1f1418 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 20px 20px;
+}
+
+/* Shiny Gold Border Gradient */
+.border-gold-gradient {
+  border-image: linear-gradient(to bottom right, #fef08a, #d97706, #78350f) 1;
+}
+
+/* Pulse animation for high-stakes pot */
+@keyframes pot-pulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.03); filter: brightness(1.2); }
+}
+
+.pot-pulse {
+  animation: pot-pulse 2s infinite ease-in-out;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "LUCKY DROP",
+  "description": "A thrilling real-time online multiplayer lucky draw game with dynamic spinning wheel, room matchmaking, live player list, and coin rewards in a sleek red and black casino aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
